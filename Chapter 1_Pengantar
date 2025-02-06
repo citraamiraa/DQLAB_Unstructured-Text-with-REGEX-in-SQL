@@ -1,0 +1,19 @@
+--- Pengantar Studi Kasus
+
+Regex
+
+Goals :
+Mempertahankan kualitas data perusahaan
+Memastikan data telah ‘bersih’ juga ready to use for users.  
+
+Problem:
+Sampel data pencatatan pada suatu basis data dengan format free text
+Banyak data yang tidak terstandarisasi dan formatnya berantakan / banyak typing of error (typo)
+
+Solution :
+Merapikan format data teks / string pada data dengan notasi regular expression (regex)
+
+Result : 
+Tidak perlu merapikan satu-satu data teks
+Mengefisiensi waktu pengerjaan
+
