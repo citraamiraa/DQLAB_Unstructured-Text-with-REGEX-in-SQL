@@ -1,12 +1,12 @@
---- Pengantar Studi Kasus
-
-Regex
+--- Pengantar Studi Kasus Regex
 
 Goals :
 Mempertahankan kualitas data perusahaan
 Memastikan data telah ‘bersih’ juga ready to use for users.  
 
 Problem:
+Banyak variasi kesalahan
+Kesalahan penulisan / ketidakseragaman pada raw data yang lebih banyak datanya
 Sampel data pencatatan pada suatu basis data dengan format free text
 Banyak data yang tidak terstandarisasi dan formatnya berantakan / banyak typing of error (typo)
 
@@ -16,4 +16,15 @@ Merapikan format data teks / string pada data dengan notasi regular expression (
 Result : 
 Tidak perlu merapikan satu-satu data teks
 Mengefisiensi waktu pengerjaan
+
++---------------+---------------+-----------+---------------+---------------+
+| no_pencatatan | tanggal_catat | kota      | jumlah_member | stat_pencatat |
++---------------+---------------+-----------+---------------+---------------+
+|       1       | 01-05-2020    | Jakarta   | 1311          | Andra         |
+|       2       | 30-06-2020    | Jakarta   | 1205          | Andra         |
+|       3       | 05/02/2020    | Bandung   | 500           | Antara        |
+|       4       | 06/28/2020    | Bandung   | 670           | Antara        |
+|       5       | 05/10/2020    | Semarang  | 8             | Senja         |
+|       6       | 06/28/2020    | Semarang  | 12            | Sendja        |
++---------------+---------------+-----------+---------------+---------------+
 
