@@ -46,3 +46,6 @@ Provinsi yang dimaksud sebenarnya sama yakni ‘Yogyakarta’
 Karena mempunyai format free text sehingga pelanggan bebas menginputkan provinsi asalnya. 
 untuk kebutuhan proses analisa data (Cth : agregasi) harus diseragamkan atau distandarisasi.
 Jika pengkondisian query dengan case – when (query pengkondisian)
+
+---  Mengenal Regular Expression
+string teks untuk membuat pola yang membantu mencocokkan (matching), menemukan (searching), dan mengelola tipe data teks
