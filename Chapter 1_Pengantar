@@ -29,3 +29,20 @@ Mengefisiensi waktu pengerjaan
 +---------------+---------------+-----------+---------------+---------------+
 
 --- Pengantar Regular Expression
+data pada tabel master_pelanggan
+hanya mengambil kolom id_pelanggan dan provinsi dari pelanggan yang berasal dari provinsi Yogyakarta. 
+
++---------------+---------------+
+| id_pelanggan  | provinsi      | 
++---------------+---------------+
+|       1       | Yogyakarta    | 
+|       2       | Jogja         | 
+|       3       | Jogjakarta    | 
+|       4       | YogYa         | 
+|       5       | D.I Yogyakarta|
++---------------+---------------+
+
+Provinsi yang dimaksud sebenarnya sama yakni ‘Yogyakarta’
+Karena mempunyai format free text sehingga pelanggan bebas menginputkan provinsi asalnya. 
+untuk kebutuhan proses analisa data (Cth : agregasi) harus diseragamkan atau distandarisasi.
+Jika pengkondisian query dengan case – when (query pengkondisian)
