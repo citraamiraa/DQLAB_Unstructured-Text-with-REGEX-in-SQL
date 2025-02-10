@@ -49,3 +49,84 @@ Jika pengkondisian query dengan case – when (query pengkondisian)
 
 ---  Mengenal Regular Expression
 string teks untuk membuat pola yang membantu mencocokkan (matching), menemukan (searching), dan mengelola tipe data teks
++ dapat mengefisiensi waktu jika kita bekerja dengan teks / perlu mengurai data dalam jumlah besar
++ tidak perlu menuliskan banyak query atau sintaks pengkondisian
+
+--- Pengkondisian Tanpa Regex	
+SELECT id_pelanggan, provinsi,
+CASE
+  WHEN provinsi LIKE '%Jogja%'
+         THEN 'Yogyakarta'
+  WHEN provinsi LIKE '%Yogya%'
+         THEN 'Yogyakarta'
+  WHEN provinsi LIKE '%YogYa%'
+         THEN 'Yogyakarta'
+  ELSE provinsi
+END AS provinsi_stdr
+FROM master_pelanggan;	
+
+--- Pengkondisian Dengan Regex
+SELECT id_pelanggan, provinsi,
+CASE
+   WHEN provinsi
+         REGEXP_LIKE( '(.*)[ Yy | Jj ] og [ Yy | Jj ](.*) ')
+   THEN 'Yogyakarta'
+   ELSE provinsi
+END AS provinsi_stdr
+FROM cust_city;
+
+akan menghasilkan kolom baru bernama provinsi_stdr (kolom hasil penyeragaman nama provinsi)
++---------------+---------------+---------------+
+| id_pelanggan  | provinsi      | provinsi_stdr |
++---------------+---------------+---------------+
+|   CUST1241    | Yogyakarta    |  Yogyakarta   |
+|   CUST1109    | Jogja         |  Yogyakarta   |
+|   CUST1994    | Jogjakarta    |  Yogyakarta   |
+|   CUST2457    | YogYa         |  Yogyakarta   |
+|   CUST3011    | D.I Yogyakarta|  Yogyakarta   |
++---------------+---------------+---------------+
+
+---  Notasi Regular Expression
+menyediakan beberapa karakter spesial yang dapat digunakan untuk mencocokan karakter dengan pola – pola tertentu
+bersifat case sensitive (huruf kecil dan huruf besar diartikan berbeda)
+
+Wildcard (.)
+Mencocokkan satu karakter apapun kecuali newline (enter)
+Regex (pa.i) akan sesuai dengan padi , paTi, pa9i, dsb.
+
+Optionality (?)
+Karakter sebelum tanda (?) bersifat opsional (boleh terdapat pada teks, boleh juga tidak ada)
+Regex (Bid?jak) akan sesuai dengan Bidjak atau Bijak (karakter d bersifat opsional)
+
+Repeatability (+)
+Pengulangan karakter dengan syarat karakter sebelum notasi + wajib ada
+Regex (go+L) akan sesuai dengan goL, goooL, dsb
+
+Repeatability(*)
+Pengulangan karakter dengan syarat karakter sebelum notasi * bersifat opsional
+Regex (go*L) akan sesuai dengan goL, gooooL, gLadi, gLamour, dsb
+
+Choice / set of characters  ([ ])
+Menemukan pola kata yang cocok akan terbatas pada regex yang akan diberi kan didalam simbol tersebut
+Regex (mak[Ai]n) hanya akan sesuai dengan teks makAn atau makin saja (pilihannya hanya A atau i)
+
+Range (-)
+Menunjukkan suatu rentang tertentu semisal [a-z], [A-Z], [a-zA-Z], [0-9], [0-9a-zA-Z],   [b-e], dsb
+Regex ([b-d]uka) akan sesuai dengan teks buka, cuka dan duka
+
+Complement (^)
+Menunjukkan negasi atau makna sebaliknya. Notasi biasa diikuti choice ([^…])
+Regex (^[aiueo]) akan sesuai dengan karakter konsonan atau non vocal
+
+Prefix (^)
+Mencocokan awalan karakter dan harus diletakkan sebelum karakter pencocokan
+Regex (^ayam) akan sesuai dengan teks ayam goreng, ayam bakar, dsb
+
+Sufix ($)
+Mencocokan akhiran karakter dan harus diletakkan sebelum karakter pencocokan
+Regex (ayam$) akan sesuai dengan kari ayam, rendang ayam, dsb
+
+
+Quantifier ({ })
+Menentukan berapa banyakkarakter, grup, atau kelas karakter yang harus ada dalam input agar kecocokan dapat ditemukan
+Regex (he.{2}o) akan sesuai dengan hello, herro, heLio, dsb (karakter yang diapit oleh he dan o harus tepat 2 karakter)
