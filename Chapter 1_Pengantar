@@ -126,7 +126,6 @@ Sufix ($)
 Mencocokan akhiran karakter dan harus diletakkan sebelum karakter pencocokan
 Regex (ayam$) akan sesuai dengan kari ayam, rendang ayam, dsb
 
-
 Quantifier ({ })
 Menentukan berapa banyakkarakter, grup, atau kelas karakter yang harus ada dalam input agar kecocokan dapat ditemukan
 Regex (he.{2}o) akan sesuai dengan hello, herro, heLio, dsb (karakter yang diapit oleh he dan o harus tepat 2 karakter)
