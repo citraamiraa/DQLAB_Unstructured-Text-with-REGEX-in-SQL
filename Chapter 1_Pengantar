@@ -111,7 +111,7 @@ Menemukan pola kata yang cocok akan terbatas pada regex yang akan diberi kan did
 Regex (mak[Ai]n) hanya akan sesuai dengan teks makAn atau makin saja (pilihannya hanya A atau i)
 
 Range (-)
-Menunjukkan suatu rentang tertentu semisal [a-z], [A-Z], [a-zA-Z], [0-9], [0-9a-zA-Z],   [b-e], dsb
+Menunjukkan suatu rentang tertentu semisal [a-z], [A-Z], [a-zA-Z], [0-9], [0-9a-zA-Z], [b-e], dsb
 Regex ([b-d]uka) akan sesuai dengan teks buka, cuka dan duka
 
 Complement (^)
@@ -127,5 +127,59 @@ Mencocokan akhiran karakter dan harus diletakkan sebelum karakter pencocokan
 Regex (ayam$) akan sesuai dengan kari ayam, rendang ayam, dsb
 
 Quantifier ({ })
-Menentukan berapa banyakkarakter, grup, atau kelas karakter yang harus ada dalam input agar kecocokan dapat ditemukan
+Menentukan berapa banyak karakter, grup, atau kelas karakter yang harus ada dalam input agar kecocokan dapat ditemukan
 Regex (he.{2}o) akan sesuai dengan hello, herro, heLio, dsb (karakter yang diapit oleh he dan o harus tepat 2 karakter)
+
+--- Sets dan Group
++ bisa mengkombinasikan berbagai notasinya
+
+Sets
+himpunan karakter di dalam sepasang tanda kurung siku [ ] dengan arti khusus 
+Notasi
+
+[abc]
+Teks akan sesuai (match) jika terdapat salah satu karakter a , b atau c didalamnya
+
+[a-z]
+Teks akan sesuai (match) jika memuat huruf kecil
+
+[A-Z]
+Teks akan sesuai (match) jika memuat huruf besar
+
+[a-zA-Z]
+Teks akan sesuai (match) jika memuat huruf kecil maupun besar
+
+[^a-z]
+Teks akan sesuai (match) dengan karakter selain huruf kecil (ditambahkan notasi negasi ^ diawal sets)
+
+[0-9]
+Teks akan sesuai (match) dengan karakter angka
+
+Group / capture and group
+pengumpulan notasi regex untuk dikelompokkan dengan notasi kurung buka dan tutup ( )
+untuk me-return nilai dari group bisa menggunakan simbol $
+
+contoh : 
+mengubah dari 1kroma menjadi kroma-1 maka 
+menggunakan REGEXP_REPLACE("1kroma", "([0-9])([a-z]+)", "$2-$1") 
+akan diperoleh teks baru yakni "kroma-1" 
+karena telah mengubah posisi group 2 ($2) diawal, lalu karakter strip ( - ), kemudian group 1 ($1) diakhir.
+
+Quiz #1
+Kegunaan notasi regex << ? >> adalah untuk …
+
+JAWABAN  :
+Mencocokkan karakter secara opsional (boleh ada boleh tidak)
+
+Quiz #2
+Teks yang tidak sesuai dengan notasi regex ([rR]u? p. a) adalah …
+
+JAWABAN :
+rupaNya
+
+Quiz #3
+Notasi regex berikut yang tidak sesuai (un-matching) dengan teks 'google' adalah …
+
+JAWABAN   :
+( g+ogl.. )
+hasilnya akan kurang huruf 'e'
