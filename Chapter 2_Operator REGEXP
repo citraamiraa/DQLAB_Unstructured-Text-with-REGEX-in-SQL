@@ -1,1 +1,10 @@
+--- Mengenal Penggunaan Operator REGEXP pada MySQL
+pencocokan teks / string pada record data
+untuk memfilter teks pada record data yang sesuai dengan argumen atau notasi regex yang kita inginkan. 
+digunakan untuk melakukan pencocokan pola dari ekspresi string dengan notasi regex terhadap suatu pola (diberikan sebagai argumen) 
+biasa dikombinasikan dengan query pengkondisian (WHERE) dan bersifat case sensitive
 
+Query dasar REGEXP
+SELECT * FROM nama_tabel WHERE nama_kolom REGEXP 'argumen'
+
+dengan argumen = kombinasi notasi regex yang diinginkan
