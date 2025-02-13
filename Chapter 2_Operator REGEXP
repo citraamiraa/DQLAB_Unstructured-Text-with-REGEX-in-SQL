@@ -8,3 +8,6 @@ Query dasar REGEXP
 SELECT * FROM nama_tabel WHERE nama_kolom REGEXP 'argumen'
 
 dengan argumen = kombinasi notasi regex yang diinginkan
+
+Tugas:
+Mempraktekkan perintah SQL REGEXP untuk menampilkan data pada tabel dqlabregex dengan kolom kota yang berakhiran 'ng' 
