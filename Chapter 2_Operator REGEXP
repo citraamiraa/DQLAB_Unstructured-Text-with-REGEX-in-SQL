@@ -11,3 +11,22 @@ dengan argumen = kombinasi notasi regex yang diinginkan
 
 Tugas:
 Mempraktekkan perintah SQL REGEXP untuk menampilkan data pada tabel dqlabregex dengan kolom kota yang berakhiran 'ng' 
+
+SELECT * FROM dqlabregex WHERE kota REGEXP 'ng$'
+
++---------------+---------------+----------+---------------+---------------+
+| no_pencatatan | tanggal_catat | kota     | jumlah_member | staf_pencatat |
++---------------+---------------+----------+---------------+---------------+
+|             3 | 05/02/2020    | Bandung  | 5O0           | Antara        |
+|             4 | 06/28/2020    | Bandung  | 67O           | Antara        |
+|             5 | 05/10/2020    | Semarang | 8             | Senja         |
+|             6 | 06/28/2020    | Semarang | 12            | Sendja        |
++---------------+---------------+----------+---------------+---------------+
+
+Notasi regex $ digunakan untuk mencocokan akhiran karakter. 
+Mengisyaratkan untuk mengambil teks yang berakhiran dengan 'ng' yakni cocok dengan teks Bandung dan Semarang
+
+--- Praktikum 1
+Menampilkan seluruh data dengan memfilter nama petugas pencatat pada kolom staf_pencatat di tabel dqlabregex dengan nama Senja atau Sendja. 
+Sebisa mungkin notasi yang diketikkan sesuai juga dengan teks SenDja, Sen_ja, dan sebagainya yang memungkinkan.
+ 
