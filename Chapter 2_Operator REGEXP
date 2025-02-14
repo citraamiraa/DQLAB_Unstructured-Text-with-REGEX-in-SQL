@@ -30,4 +30,11 @@ Mengisyaratkan untuk mengambil teks yang berakhiran dengan 'ng' yakni cocok deng
 Menampilkan seluruh data dengan memfilter nama petugas pencatat pada kolom staf_pencatat di tabel dqlabregex dengan nama Senja atau Sendja. 
 Sesuai juga dengan teks SenDja, Sen_ja, dan sebagainya yang memungkinkan.
 
-SELECT * FROM dqlabregex WHERE staf_pencatat REGEXP 'Sen[ _d]?ja'
+SELECT * FROM dqlabregex WHERE staf_pencatat REGEXP 'Sen.?ja'
+
++---------------+---------------+----------+---------------+---------------+
+| no_pencatatan | tanggal_catat | kota     | jumlah_member | staf_pencatat |
++---------------+---------------+----------+---------------+---------------+
+|             5 | 05/10/2020    | Semarang | 8             | Senja         |
+|             6 | 06/28/2020    | Semarang | 12            | Sendja        |
++---------------+---------------+----------+---------------+---------------+
